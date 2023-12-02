@@ -7,7 +7,7 @@
 
 ## Introduction
 
-The goal of GAclustenhancer is to use genetic algorithms to improve
+The goal of GAClustR is to use genetic algorithms to improve
 clustering in situations where clusters are used to calculate
 correlation. A GA with a correlation-based fitness function optimizes
 clustering results to maximize correlation values. A common use for this
@@ -21,12 +21,12 @@ SummarizedExperiment for working with gene datasets.
 
 ## Installation
 
-You can install the development version of GAclustenhancer from
-[GitHub](https://github.com/frankcsquared/GAclustenhancer) with:
+You can install the development version of GAClustR from
+[GitHub](https://github.com/frankcsquared/GAClustR) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("frankcsquared/GAclustenhancer")
+devtools::install_github("frankcsquared/GAClustR")
 ```
 
 ## Example
@@ -36,7 +36,7 @@ common problem:
 
 ``` r
 ## load in packages
-library(GAclustenhancer)
+library(GAClustR)
 
 ## set paths and read in data (change paths before using)
 load("./data/count_data.rda") #gene expression count data of dim 882 genes by 348 cell line samples, preprocessed in data-raw/preprocess.R
@@ -207,7 +207,7 @@ achieved. Non-GA enhanced clustering (hclust function in R) acheives a
 correlation of 0.693 on the same dataset, as shown below:
 
 ``` r
-library(GAclustenhancer)
+library(GAClustR)
 
 ## set paths and read in data (change paths before using)
 load("./data/count_data.rda") #gene expression count data of dim 882 genes by 348 cell line samples, preprocessed in data-raw/preprocess.R
