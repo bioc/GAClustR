@@ -2,7 +2,7 @@ Package: GAClustR
 Type: Package
 Title: Genetic Algorithms for Enhancing Clustering of Gene Expression
         Data
-Version: 0.9.9.1
+Version: 0.99.1
 Authors@R: 
     person(given = "Zejia", family = "Chen", email = "zchen@qmed.ca", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4286-7871"))
