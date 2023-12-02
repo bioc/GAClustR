@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
+## Introduction
+
 The goal of GAclustenhancer is to use genetic algorithms to improve clustering in situations where clusters are used to calculate correlation. A GA with a correlation-based fitness function optimizes clustering results to maximize correlation values. A common use for this package is with gene expression data analysis. An example using sample gene expression data is shown below.
 
 This package requires a few imports: GA, methods, Rfast, stats, utils
