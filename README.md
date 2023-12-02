@@ -1,9 +1,11 @@
 
-# GAclustenhancer
+# GAClustR
 
 <!-- badges: start -->
 
 <!-- badges: end -->
+
+## Introduction
 
 The goal of GAclustenhancer is to use genetic algorithms to improve
 clustering in situations where clusters are used to calculate
