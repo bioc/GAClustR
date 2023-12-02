@@ -189,7 +189,7 @@ obj_gene <- ga.clust(dataset = t_count_data[1:100, 1:50], k = 2, plot.internals 
 #>     seed.p = 42)
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="GAClustR/man/figures/README-example-1.png" width="100%" />
 
 ``` r
 
