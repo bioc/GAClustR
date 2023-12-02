@@ -1,0 +1,71 @@
+---
+output: github_document
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# GAclustenhancer
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of GAclustenhancer is to use genetic algorithms to improve clustering in situations where clusters are used to calculate correlation. A GA with a correlation-based fitness function optimizes clustering results to maximize correlation values. A common use for this package is with gene expression data analysis. An example using sample gene expression data is shown below.
+
+This package requires a few imports: GA, methods, Rfast, stats, utils
+
+While not necessary, we suggest you also import DESeq2, SummarizedExperiment for working with gene datasets.
+
+## Installation
+
+You can install the development version of GAclustenhancer from [GitHub](https://github.com/frankcsquared/GAclustenhancer) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("frankcsquared/GAclustenhancer")
+```
+
+## Example
+
+This is a basic example using sample data which shows you how to solve a common problem:
+
+```{r example}
+## load in packages
+library(GAclustenhancer)
+
+## set paths and read in data (change paths before using)
+load("./data/count_data.rda") #gene expression count data of dim 882 genes by 348 cell line samples, preprocessed in data-raw/preprocess.R
+load("./data/t_count_data.rda") #transposed and preprocessed gene expression count data
+load("./data/input_lfc.rda") #L2fc results calculated from DESeq2
+
+## run example on subset of dataset
+obj_gene <- ga.clust(dataset = t_count_data[1:100, 1:50], k = 2, plot.internals = TRUE, seed.p = 42, pop.size = ncol(count_data[1:50, 1:100]), known_lfc = input_lfc[1:50])
+
+## run example on entire dataset (runtime > 1 hour)
+#obj_gene <- ga.clust(dataset = t_data, k = 2, plot.internals = TRUE, seed.p = 42, pop.size = ncol(data), known_lfc = input_lfc)
+```
+
+## Comparison with Non-GA Enhanced Clustering
+
+Our GA-based clustering algorithm acheives a correlation of 0.826 by iteratively optimizing the cluster partition until high correlation is achieved. Non-GA enhanced clustering (hclust function in R) acheives a correlation of 0.693 on the same dataset, as shown below:
+
+```{r}
+library(GAclustenhancer)
+
+## set paths and read in data (change paths before using)
+load("./data/count_data.rda") #gene expression count data of dim 882 genes by 348 cell line samples, preprocessed in data-raw/preprocess.R
+load("./data/t_count_data.rda") #transposed and preprocessed gene expression count data
+load("./data/input_lfc.rda") #L2fc results calculated from DESeq2
+
+## cluster data
+cluster_results <- cluster.l2fc(count_data, input_lfc)
+
+## correlate with existing l2fc
+abs(cor(cluster_results$lfc, input_lfc))
+```
