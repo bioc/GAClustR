@@ -8,7 +8,7 @@ Authors@R:
            comment = c(ORCID = "0000-0002-4286-7871"))
 Description: Utilize the power of genetic algorithms to enhance clustering performance in scenarios where clusters play a pivotal role in correlation calculations. Employ a genetic algorithm with a fitness function centered around correlation to optimize clustering outcomes, ultimately maximizing correlation values. This package finds frequent application in the realm of gene expression data analysis.
 License: MIT + file LICENSE
-biocViews: Software
+biocViews: DifferentialExpression, Clustering, RNASeq, Transcription
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 Imports: GA, methods, Rfast, stats, utils
